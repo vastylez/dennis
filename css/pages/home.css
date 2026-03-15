@@ -22,12 +22,23 @@
     .brand{font-family:"Space Grotesk",sans-serif;letter-spacing:.18em;text-transform:uppercase;font-size:13px}.brand b{color:var(--emerald)}
     .links{display:flex;gap:12px;flex-wrap:wrap}.links a{text-decoration:none;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.1em}
     .links a:hover{color:var(--text)}
-    section{padding:44px 22px;border-top:1px solid rgba(255,255,255,.04);position:relative;z-index:1} .container{max-width:1320px;margin:0 auto;position:relative;z-index:1}
-    .hero{padding-top:72px}.badge{display:inline-block;padding:6px 11px;border-radius:999px;border:1px solid rgba(16,185,129,.4);background:var(--emerald-soft);color:#b4f7df;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-    h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(32px,5vw,56px);line-height:1.05;margin:12px 0 10px;max-width:13ch}
-    .sub{max-width:72ch;color:var(--muted);font-size:clamp(14px,1.4vw,17px)}
-    .hero-grid{margin-top:18px;display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+    section{padding:44px 22px;border-top:1px solid rgba(255,255,255,.04);position:relative;z-index:1}
+    section:nth-of-type(even){background:linear-gradient(180deg, rgba(255,255,255,.022), rgba(255,255,255,.006));}
+    .container{max-width:1320px;margin:0 auto;position:relative;z-index:1}
+    .hero{padding-top:72px;overflow:hidden}
+    .hero-slideshow{position:absolute;inset:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;pointer-events:none}
+    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.03);transition:opacity 1s ease, transform 10s ease}
+    .hero-slide.is-active{opacity:.34;transform:scale(1)}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,.45),rgba(0,0,0,.72));}
+    .hero-dots{position:absolute;right:12px;bottom:12px;display:flex;gap:6px}
+    .dot{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.3);transition:all .25s ease}
+    .dot.is-active{width:18px;background:var(--emerald)}
+    .badge{display:inline-block;padding:6px 11px;border-radius:999px;border:1px solid rgba(16,185,129,.4);background:var(--emerald-soft);color:#b4f7df;font-size:11px;letter-spacing:.14em;text-transform:uppercase;position:relative;z-index:2}
+    h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(32px,5vw,56px);line-height:1.05;margin:12px 0 10px;max-width:13ch;position:relative;z-index:2}
+    .sub{max-width:72ch;color:var(--muted);font-size:clamp(14px,1.4vw,17px);position:relative;z-index:2}
+    .hero-grid{margin-top:18px;display:grid;grid-template-columns:1.2fr .8fr;gap:12px;position:relative;z-index:2}
     .card{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:16px;transform:translateY(26px) scale(.985);opacity:0;filter:blur(2px);transition:transform .85s cubic-bezier(.2,.8,.2,1), opacity .75s ease, filter .8s ease, box-shadow .4s ease;box-shadow:var(--shadow)}
+    .card:hover{box-shadow:0 20px 55px rgba(0,0,0,.55), 0 0 0 1px rgba(16,185,129,.25) inset;transform:translateY(-2px)}
     .card.in{transform:translateY(0) scale(1);opacity:1;filter:blur(0)}
     .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.kpi{border:1px solid var(--line);border-radius:10px;padding:12px;background:#0b1220}
     .num{font-size:24px;font-weight:800;color:var(--emerald)}
